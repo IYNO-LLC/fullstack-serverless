@@ -185,6 +185,8 @@ class ServerlessFullstackPlugin {
                 //paths must start with '/'
                 invalidationPaths = invalidationPaths.map(path => path[0] === '/' ? path : '/' + path);
 
+                if (this.cliOptions.client === false) return false;
+
                 const deployDescribe = ['This deployment will:'];
 
                 if (this.cliOptions['delete-contents'] !== false) {
